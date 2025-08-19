@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Chart Example</title>
+    <style>
+        .tree ul {
+            padding-top: 20px;
+            position: relative;
+            transition: all 0.5s;
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        .tree li {
+            display: table-cell;
+            vertical-align: top;
+            text-align: center;
+            list-style-type: none;
+            position: relative;
+            padding: 20px 5px 0 5px;
+            transition: all 0.5s;
+        }
+
+        .tree li::before, .tree li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            border-top: 1px solid #ccc;
+            width: 50%;
+            height: 20px;
+        }
+
+        .tree li::after {
+            right: auto;
+            left: 50%;
+            border-left: 1px solid #ccc;
+        }
+
+        .tree li:only-child::before, .tree li:only-child::after {
+            display: none;
+        }
+
+        .tree li:only-child {
+            padding-top: 0;
+        }
+
+        .tree li:first-child::before, .tree li:last-child::after {
+            border: none;
+        }
+
+        .tree li:last-child::before {
+            border-right: 1px solid #ccc;
+            border-radius: 0 5px 0 0;
+        }
+
+        .tree li:first-child::after {
+            border-radius: 5px 0 0 0;
+        }
+
+        .tree li div {
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            display: inline-block;
+            border-radius: 5px;
+            background-color: #e6e6e6;
+            position: relative;
+            top: -20px;
+            transition: all 0.5s;
+        }
+
+        .tree li div:hover {
+            background-color: #cce5ff;
+            border-color: #007bff;
+        }
+
+        .tree ul ul::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            border-left: 1px solid #ccc;
+            width: 0;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tree">
+        <ul>
+            <li>
+                <div>CEO</div>
+                <ul>
+                    <li>
+                        <div>Manager 1</div>
+                        <ul>
+                            <li><div>Team Lead 1.1</div></li>
+                            <li><div>Team Lead 1.2</div></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div>Manager 2</div>
+                        <ul>
+                            <li><div>Team Lead 2.1</div></li>
+                            <li><div>Team Lead 2.2</div></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
